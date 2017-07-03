@@ -18,9 +18,12 @@ defmodule Allthingselixir.Mixfile do
   # Type `mix help compile.app` for more information.
   def application do
     [mod: {Allthingselixir, []},
-     applications: [:phoenix, :phoenix_pubsub, :phoenix_html, :cowboy, :logger, :gettext,
-                    :phoenix_ecto, :postgrex]]
+     applications: applications(Mix.env)]
   end
+
+  defp applications(:dev), do: applications(:all) ++ [:remix]
+  defp applications(_all), do: [:phoenix, :phoenix_pubsub, :phoenix_html, :cowboy, :logger, :gettext,
+                    :phoenix_ecto, :postgrex, :oauth2]
 
   # Specifies which paths to compile per environment.
   defp elixirc_paths(:test), do: ["lib", "web", "test/support"]
@@ -37,6 +40,8 @@ defmodule Allthingselixir.Mixfile do
      {:phoenix_html, "~> 2.6"},
      {:phoenix_live_reload, "~> 1.0", only: :dev},
      {:gettext, "~> 0.11"},
+     {:oauth2, "~> 0.9"},
+     {:remix, "~> 0.0.1", only: :dev},
      {:cowboy, "~> 1.0"}]
   end
 
