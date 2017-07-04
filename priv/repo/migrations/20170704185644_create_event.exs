@@ -8,7 +8,7 @@ defmodule Allthingselixir.Repo.Migrations.CreateEvent do
       add :url, :string
       add :start_date, :date
       add :end_date, :date
-      add :cfp_closing_date, :date
+      add :cfp_closing_datetime, :timestamp
 
       timestamps()
     end

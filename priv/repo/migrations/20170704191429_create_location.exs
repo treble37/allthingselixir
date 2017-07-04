@@ -7,8 +7,7 @@ defmodule Allthingselixir.Repo.Migrations.CreateLocation do
       add :state, :string
       add :country, :string
       add :postal_code, :string
-      add :street_name, :string
-      add :street_number, :string
+      add :street_address, :string
       add :latitude, :string
       add :longitude, :string
       add :event_id, references(:events, on_delete: :nothing)
