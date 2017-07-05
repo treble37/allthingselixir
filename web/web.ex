@@ -20,6 +20,7 @@ defmodule Allthingselixir.Web do
     quote do
       use Ecto.Schema
 
+      alias Allthingselixir.Repo
       import Ecto
       import Ecto.Changeset
       import Ecto.Query
