@@ -1,0 +1,11 @@
+<%= for event <- @events do %>
+  <div class="row">
+    <div class="col-md-12"><h3><%= event.name %></h3></div>
+  </div>
+  <div class="row">
+    <div class="col-md-2"><%= event.start_date %></div>
+    <div class="col-md-2"><a href="<%= event.url %>" target="_blank"><%= event.url %></a></div>
+    <div class="col-md-2"><a href="https://twitter.com/<%= event.twitter %>" target="_blank">@<%= event.twitter %></a></div>
+  </div>
+  <hr>
+<% end %>

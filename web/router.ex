@@ -18,6 +18,7 @@ defmodule Allthingselixir.Router do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
+    resources "/events", EventController, only: [:index]
   end
 
   scope "/auth", Allthingselixir do
