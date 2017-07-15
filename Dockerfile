@@ -6,7 +6,7 @@ FROM trenpixster/elixir:1.4.2
 # The official node instructions want you to pipe a script from the
 # internet through sudo. There are alternatives:
 # https://www.joyent.com/blog/installing-node-and-npm
-RUN curl -sL https://deb.nodesource.com/setup_5.x | sudo -E bash - && apt-get install -y nodejs
+RUN curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash - && apt-get install -y nodejs
 
 # Install other stable dependencies that don't change often
 
