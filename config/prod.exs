@@ -13,10 +13,24 @@ use Mix.Config
 # which you typically run after static files are built.
 config :allthingselixir, Allthingselixir.Endpoint,
   http: [port: {:system, "PORT"}],
-  url: [host: "example.com", port: 80],
-  cache_static_manifest: "priv/static/manifest.json"
+  url: [host: System.get_env("HOST"), port: {:system, "PORT"}],
+  code_reloader: false,
+  cache_static_manifest: "priv/static/manifest.json",
+  server: true
+
+# Configure your database
+config :project_name, Allthingselixir.Repo,
+  adapter: Ecto.Adapters.Postgres,
+  database: System.get_env("RDS_DB_NAME"),
+  username: System.get_env("RDS_USERNAME"),
+  password: System.get_env("RDS_PASSWORD"),
+  hostname: System.get_env("RDS_HOSTNAME"),
+  port: System.get_env("RDS_PORT") || 5432,
+  pool_size: 20
+  #  ssl: true
 
 # Do not print debug messages in production
+
 config :logger, level: :info
 
 # ## SSL Support
