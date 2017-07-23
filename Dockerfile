@@ -23,16 +23,16 @@ RUN mkdir /app
 ADD . /app
 WORKDIR /app
 
-# Install Node Deps
-ADD package.json ./
-RUN npm install
-
 # Install app
 ADD . .
 
 # Install Elixir deps
 RUN MIX_ENV=prod mix deps.get
 RUN MIX_ENV=prod mix compile
+
+# Install Node Deps
+ADD package.json ./
+RUN npm install
 
 # Compile assets
 RUN NODE_ENV=production node_modules/brunch/bin/brunch build --production
