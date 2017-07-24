@@ -19,7 +19,7 @@ config :allthingselixir, Allthingselixir.Endpoint,
   server: true
 
 # Configure your database
-config :project_name, Allthingselixir.Repo,
+config :allthingselixir, Allthingselixir.Repo,
   adapter: Ecto.Adapters.Postgres,
   database: System.get_env("RDS_DB_NAME"),
   username: System.get_env("RDS_USERNAME"),
