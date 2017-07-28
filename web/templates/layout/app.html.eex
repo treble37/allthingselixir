@@ -7,22 +7,21 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Hello Allthingselixir!</title>
+    <title>AllThingsElixir - Conferences and More!</title>
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
   </head>
 
   <body>
     <div class="container">
       <header class="header">
+        <div class="page-header">
+          <h1>Elixir Conferences</h1>
+        </div>
         <nav role="navigation">
           <ul class="nav nav-pills pull-right">
-            <li role="presentation"><%= render "login.html", conn: @conn, current_user: @current_user %><br><br></li>
           </ul>
         </nav>
       </header>
-
-      <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
-      <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
 
       <main role="main">
         <%= render @view_module, @view_template, assigns %>

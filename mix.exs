@@ -23,7 +23,7 @@ defmodule Allthingselixir.Mixfile do
 
   defp applications(:dev), do: applications(:all) ++ [:remix]
   defp applications(_all), do: [:phoenix, :phoenix_pubsub, :phoenix_html, :cowboy, :logger, :gettext,
-                    :phoenix_ecto, :postgrex, :oauth2, :calendar, :yaml_elixir]
+                    :phoenix_ecto, :postgrex, :oauth2, :timex, :yaml_elixir]
 
   # Specifies which paths to compile per environment.
   defp elixirc_paths(:test), do: ["lib", "web", "test/support"]
@@ -42,7 +42,7 @@ defmodule Allthingselixir.Mixfile do
      {:gettext, "~> 0.11"},
      {:oauth2, "~> 0.9"},
      {:remix, "~> 0.0.1", only: :dev},
-     {:calendar, "~> 0.17.2"},
+     {:timex, "~> 3.1"},
      {:yaml_elixir, "~> 1.3.0"},
      {:cowboy, "~> 1.0"}]
   end
