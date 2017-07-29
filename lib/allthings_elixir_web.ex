@@ -53,6 +53,7 @@ defmodule Allthingselixir.Web do
       import Allthingselixir.Web.Router.Helpers
       import Allthingselixir.Web.ErrorHelpers
       import Allthingselixir.Web.Gettext
+      import Allthingselixir.Web.EventViewHelper
     end
   end
 

@@ -1,11 +1,19 @@
 <%= for event <- @events do %>
   <div class="row">
-    <div class="col-md-12"><h3><%= event.name %></h3></div>
+    <div class="col-md-12">
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          <h2><a href="<%= event.url %>" target="_blank"><%= event.name %></a></h2>
+        </div>
+        <div class="panel-body">
+          <div class="row bs-callout bs-callout-warning">
+            <div class="col-md-3">
+              <h4 class="text-warning"><%= conf_date_format(event.start_date) %> to <%= conf_date_format(event.end_date) %></h4>
+            </div>
+            <div class="col-md-2"><h4><a href="https://twitter.com/<%= event.twitter %>" target="_blank">@<%= event.twitter %></a></h4></div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="row">
-    <div class="col-md-2"><%= event.start_date %></div>
-    <div class="col-md-2"><a href="<%= event.url %>" target="_blank"><%= event.url %></a></div>
-    <div class="col-md-2"><a href="https://twitter.com/<%= event.twitter %>" target="_blank">@<%= event.twitter %></a></div>
-  </div>
-  <hr>
 <% end %>
