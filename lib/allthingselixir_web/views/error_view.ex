@@ -1,4 +1,4 @@
-defmodule Allthingselixir.ErrorView do
+defmodule Allthingselixir.Web.ErrorView do
   use Allthingselixir.Web, :view
 
   def render("404.html", _assigns) do

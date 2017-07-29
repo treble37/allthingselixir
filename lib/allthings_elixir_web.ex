@@ -29,20 +29,20 @@ defmodule Allthingselixir.Web do
 
   def controller do
     quote do
-      use Phoenix.Controller
+      use Phoenix.Controller, namespace: Allthingselixir.Web
 
       alias Allthingselixir.Repo
       import Ecto
       import Ecto.Query
 
-      import Allthingselixir.Router.Helpers
-      import Allthingselixir.Gettext
+      import Allthingselixir.Web.Router.Helpers
+      import Allthingselixir.Web.Gettext
     end
   end
 
   def view do
     quote do
-      use Phoenix.View, root: "web/templates"
+      use Phoenix.View, root: "lib/allthingselixir_web/templates", namespace: Allthingselixir.Web
 
       # Import convenience functions from controllers
       import Phoenix.Controller, only: [get_csrf_token: 0, get_flash: 2, view_module: 1]
@@ -50,9 +50,9 @@ defmodule Allthingselixir.Web do
       # Use all HTML functionality (forms, tags, etc)
       use Phoenix.HTML
 
-      import Allthingselixir.Router.Helpers
-      import Allthingselixir.ErrorHelpers
-      import Allthingselixir.Gettext
+      import Allthingselixir.Web.Router.Helpers
+      import Allthingselixir.Web.ErrorHelpers
+      import Allthingselixir.Web.Gettext
     end
   end
 
@@ -69,7 +69,7 @@ defmodule Allthingselixir.Web do
       alias Allthingselixir.Repo
       import Ecto
       import Ecto.Query
-      import Allthingselixir.Gettext
+      import Allthingselixir.Web.Gettext
     end
   end
 

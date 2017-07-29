@@ -1,8 +1,3 @@
-defmodule Allthingselixir.PageControllerTest do
-  use Allthingselixir.ConnCase
-
-  test "GET /", %{conn: conn} do
-    conn = get conn, "/"
-    assert html_response(conn, 200) =~ "Welcome to Phoenix!"
-  end
+defmodule Allthingselixir.Web.PageControllerTest do
+  use Allthingselixir.Web.ConnCase
 end

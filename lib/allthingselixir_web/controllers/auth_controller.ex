@@ -1,4 +1,4 @@
-defmodule Allthingselixir.AuthController do
+defmodule Allthingselixir.Web.AuthController do
   use Allthingselixir.Web, :controller
 
   @doc """

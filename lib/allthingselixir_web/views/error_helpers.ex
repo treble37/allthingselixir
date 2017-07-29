@@ -1,4 +1,4 @@
-defmodule Allthingselixir.ErrorHelpers do
+defmodule Allthingselixir.Web.ErrorHelpers do
   @moduledoc """
   Conveniences for translating and building error messages.
   """
@@ -32,9 +32,9 @@ defmodule Allthingselixir.ErrorHelpers do
     #     dgettext "errors", "is invalid"
     #
     if count = opts[:count] do
-      Gettext.dngettext(Allthingselixir.Gettext, "errors", msg, msg, count, opts)
+      Gettext.dngettext(Allthingselixir.Web.Gettext, "errors", msg, msg, count, opts)
     else
-      Gettext.dgettext(Allthingselixir.Gettext, "errors", msg, opts)
+      Gettext.dgettext(Allthingselixir.Web.Gettext, "errors", msg, opts)
     end
   end
 end

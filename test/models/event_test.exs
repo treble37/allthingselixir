@@ -1,4 +1,4 @@
-defmodule Allthingselixir.EventTest do
+defmodule Allthingselixir.Web.EventTest do
   use Allthingselixir.ModelCase
 
   alias Allthingselixir.Event

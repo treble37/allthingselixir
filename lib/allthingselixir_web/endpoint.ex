@@ -1,7 +1,7 @@
-defmodule Allthingselixir.Endpoint do
+defmodule Allthingselixir.Web.Endpoint do
   use Phoenix.Endpoint, otp_app: :allthingselixir
 
-  socket "/socket", Allthingselixir.UserSocket
+  socket "/socket", Allthingselixir.Web.UserSocket
 
   # Serve at "/" the static files from "priv/static" directory.
   #
@@ -38,5 +38,5 @@ defmodule Allthingselixir.Endpoint do
     key: "_allthingselixir_key",
     signing_salt: "Ts20ruRP"
 
-  plug Allthingselixir.Router
+  plug Allthingselixir.Web.Router
 end

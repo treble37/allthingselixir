@@ -1,4 +1,4 @@
-defmodule Allthingselixir.LayoutView do
+defmodule Allthingselixir.Web.LayoutView do
   use Allthingselixir.Web, :view
 
   def welcome_message(current_user) do

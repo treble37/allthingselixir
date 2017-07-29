@@ -1,4 +1,4 @@
-defmodule Allthingselixir.Router do
+defmodule Allthingselixir.Web.Router do
   use Allthingselixir.Web, :router
 
   pipeline :browser do
@@ -14,7 +14,7 @@ defmodule Allthingselixir.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/", Allthingselixir do
+  scope "/", Allthingselixir.Web do
     pipe_through :browser # Use the default browser stack
 
     get "/", EventController, :index
@@ -22,7 +22,7 @@ defmodule Allthingselixir.Router do
     get "/*path", EventController, :index
   end
 
-  scope "/auth", Allthingselixir do
+  scope "/auth", Allthingselixir.Web do
     pipe_through :browser
 
     get "/:provider", AuthController, :index

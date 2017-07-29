@@ -10,7 +10,7 @@ config :allthingselixir,
   ecto_repos: [Allthingselixir.Repo]
 
 # Configures the endpoint
-config :allthingselixir, Allthingselixir.Endpoint,
+config :allthingselixir, Allthingselixir.Web.Endpoint,
   url: [host: "localhost"],
   secret_key_base: "+qh2DaW4hP3RWar8H5wNNZqpDznN7MY0Mv/+2m1KNKfpNK6tCfP4rD0FqUT+fcqj",
   render_errors: [view: Allthingselixir.ErrorView, accepts: ~w(html json)],

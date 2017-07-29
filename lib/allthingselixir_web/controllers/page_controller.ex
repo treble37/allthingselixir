@@ -1,4 +1,4 @@
-defmodule Allthingselixir.PageController do
+defmodule Allthingselixir.Web.PageController do
   use Allthingselixir.Web, :controller
 
   def index(conn, _params) do

@@ -1,4 +1,4 @@
-defmodule Allthingselixir.UserTest do
+defmodule Allthingselixir.Web.UserTest do
   use Allthingselixir.ModelCase
 
   alias Allthingselixir.User

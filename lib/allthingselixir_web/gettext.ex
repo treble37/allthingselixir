@@ -1,4 +1,4 @@
-defmodule Allthingselixir.Gettext do
+defmodule Allthingselixir.Web.Gettext do
   @moduledoc """
   A module providing Internationalization with a gettext-based API.
 

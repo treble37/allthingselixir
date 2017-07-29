@@ -1,3 +1,3 @@
-defmodule Allthingselixir.LayoutViewTest do
-  use Allthingselixir.ConnCase, async: true
+defmodule Allthingselixir.Web.LayoutViewTest do
+  use Allthingselixir.Web.ConnCase, async: true
 end

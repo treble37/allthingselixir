@@ -1,4 +1,4 @@
-defmodule Allthingselixir.EventController do
+defmodule Allthingselixir.Web.EventController do
   use Allthingselixir.Web, :controller
   import QueryHelper
 

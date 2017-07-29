@@ -1,4 +1,4 @@
-defmodule Allthingselixir.LocationTest do
+defmodule Allthingselixir.Web.LocationTest do
   use Allthingselixir.ModelCase
 
   alias Allthingselixir.Location

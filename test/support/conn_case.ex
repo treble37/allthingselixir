@@ -1,4 +1,4 @@
-defmodule Allthingselixir.ConnCase do
+defmodule Allthingselixir.Web.ConnCase do
   @moduledoc """
   This module defines the test case to be used by
   tests that require setting up a connection.
@@ -25,10 +25,10 @@ defmodule Allthingselixir.ConnCase do
       import Ecto.Changeset
       import Ecto.Query
 
-      import Allthingselixir.Router.Helpers
+      import Allthingselixir.Web.Router.Helpers
 
       # The default endpoint for testing
-      @endpoint Allthingselixir.Endpoint
+      @endpoint Allthingselixir.Web.Endpoint
     end
   end
 
