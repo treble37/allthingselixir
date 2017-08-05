@@ -1,5 +1,5 @@
 defmodule Allthingselixir.EventWorker do
-  alias Allthingselixir.Event
+  alias Allthingselixir.{Event, Location, MetaProperty}
   use GenServer
 
   def start_link do
@@ -14,8 +14,8 @@ defmodule Allthingselixir.EventWorker do
   def handle_info(:work, state) do
     current_year = Timex.now.year
     data = File.cwd!
-           |> Path.join("web/data/#{current_year}_conferences.yml")
-           |> YamlElixir.read_from_file
+           |> Path.join("lib/allthingselixir_web/data/#{current_year}_conferences.yml")
+           |> YamlElixir.read_from_file(atoms: true)
            |> process_event_data_from_yaml
     schedule_work()
     {:noreply, state}
@@ -33,18 +33,37 @@ defmodule Allthingselixir.EventWorker do
 #   "start_date" => "09/05/2017", "time_zone" => "PST",
 #   "twitter" => "ElixirConf", "url" => "https://elixirconf.com/"}]
     data
-    |> Enum.map(fn(map) -> process_map_with_dates(map) end)
-    |> Enum.each(fn(opts) -> Event.find_or_create_by_name(opts["name"], Map.drop(opts, ["name"])) end)
+    |> Enum.map(&process_map_with_dates/1)
+    |> Enum.each(&find_or_create_models/1)
+  end
+
+  def find_or_create_models(opts) do
+    event = Event.find_or_create_by_name(opts["name"], %{})
+    Location.find_or_create_by_city_country(event, opts["location"])
+    MetaProperty.find_or_create_by_end_date(event, Map.take(opts, ["twitter", "url", "start_date", "end_date", "time_zone", "cfp_closing_datetime"]))
   end
 
   def process_map_with_dates(map) do
     %{"cfp_closing_datetime" => cfp_closing_datetime,
       "start_date" => start_date, "end_date" => end_date } = map
-    Map.merge(map, %{"cfp_closing_datetime" => transform_datetime(cfp_closing_datetime),
+    %{"location" => loc_map} = map
+
+    m=Map.merge(map, %{"cfp_closing_datetime" => transform_datetime(cfp_closing_datetime),
       "start_date" => transform_date(start_date),
-      "end_date" => transform_date(end_date)}
+      "end_date" => transform_date(end_date),
+      "location" => Map.merge(loc_map, %{"postal_code" => stringify_field(loc_map, "postal_code")}) }
     )
+    IO.inspect m
+    m
   end
+
+  def stringify_field(map, field) do
+    stringify_field(map[field])
+  end
+
+  def stringify_field(nil), do: ""
+  def stringify_field(val) when is_binary(val), do: val
+  def stringify_field(val) when is_number(val), do: val |> to_string
 
   def transform_datetime(input) do
     # {:ok, ~N[2016-09-05 23:59:00]}
