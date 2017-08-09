@@ -23,8 +23,9 @@ defmodule Allthingselixir.Event do
 
   def find_or_create_by_name(e_name, options \\ %{}) do
     query = from e in Event, where: e.name == ^e_name
-    if !Repo.one(query) do
-      Event.changeset(%Event{}, Map.merge(%{name: e_name}, options))
+    event = Event.changeset(%Event{}, Map.merge(%{name: e_name}, options))
+    if !Repo.one(query) && event.valid? do
+      event
       |> Repo.insert!
     end
     Repo.one(query)

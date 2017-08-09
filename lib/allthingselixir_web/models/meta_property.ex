@@ -31,7 +31,7 @@ defmodule Allthingselixir.MetaProperty do
                               |> build_assoc(:meta_properties)
                               |> MetaProperty.changeset(options)
     meta_property = Repo.get_by(MetaProperty, event_id: event.id)
-    if !meta_property do
+    if !meta_property && meta_property_changeset.valid? do
       meta_property_changeset
       |> Repo.insert!
     else

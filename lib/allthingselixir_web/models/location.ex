@@ -33,7 +33,7 @@ defmodule Allthingselixir.Location do
                          |> build_assoc(:locations)
                          |> Location.changeset(options)
     location = Repo.get_by(Location, event_id: event.id)
-    if !location do
+    if !location && location_changeset.valid? do
       location_changeset
       |> Repo.insert!
     else
