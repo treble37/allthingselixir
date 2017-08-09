@@ -1,3 +1,31 @@
+- name: Elixirocks
+  location:
+    street_address: 333 Wonderview Avenue
+    city: Estes Park
+    state: CO
+    country: United States of America
+    postal_code: 80517
+  start_date: 11/9/2017
+  end_date: 11/10/2017
+  url: http://www.elixirocks.com/
+  twitter: elixirocks
+  cfp_closing_datetime: 06/30/2017 12:00 AM
+  time_zone: MDT
+
+- name: Elixir With Love
+  location:
+    street_address: 11 Dorrance Street
+    city: Providence
+    state: Rhode Island
+    country: United States of America
+    postal_code: 02903
+  start_date: 11/10/2017
+  end_date: 11/10/2017
+  url: https://www.elixir-with-love.com/
+  twitter: elixir_w_love
+  cfp_closing_datetime: 10/01/2017 8:13 AM
+  time_zone: EST
+
 - name: ElixirConf
   location:
     street_address: 900 Bellvue Way NE
