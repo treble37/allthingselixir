@@ -13,8 +13,8 @@ defmodule Allthingselixir.MetaProperty do
     timestamps()
   end
 
-  @required_fields ~w(end_date event_id)
-  @optional_fields ~w(twitter url start_date end_date cfp_closing_datetime)
+  @required_fields ~w(end_date event_id)a
+  @optional_fields ~w(twitter url start_date end_date cfp_closing_datetime)a
 
   @doc """
   Builds a changeset based on the `struct` and `params`.

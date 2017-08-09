@@ -10,7 +10,7 @@ defmodule Allthingselixir.Event do
     timestamps()
   end
 
-  @required_fields ~w(name)
+  @required_fields ~w(name)a
 
   @doc """
   Builds a changeset based on the `struct` and `params`.

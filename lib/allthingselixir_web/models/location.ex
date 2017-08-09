@@ -15,8 +15,8 @@ defmodule Allthingselixir.Location do
     timestamps()
   end
 
-  @required_fields ~w(city country event_id)
-  @optional_fields ~w(state postal_code street_address latitude longitude)
+  @required_fields ~w(city country event_id)a
+  @optional_fields ~w(state postal_code street_address latitude longitude)a
 
   @doc """
   Builds a changeset based on the `struct` and `params`.
