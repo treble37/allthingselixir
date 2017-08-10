@@ -27,7 +27,7 @@ defmodule Allthingselixir.Mixfile do
                     :phoenix_ecto, :postgrex, :oauth2, :timex, :yaml_elixir]
 
   # Specifies which paths to compile per environment.
-  defp elixirc_paths(:test), do: ["lib", "test/support"]
+  defp elixirc_paths(:test), do: ["lib", "spec/support"]
   defp elixirc_paths(_),     do: ["lib"]
 
   # Specifies your project dependencies.
@@ -45,6 +45,7 @@ defmodule Allthingselixir.Mixfile do
      {:remix, "~> 0.0.1", only: :dev},
      {:timex, "~> 3.1"},
      {:yaml_elixir, "~> 1.3.0"},
+     {:ex_machina, "~> 2.0"},
      {:espec_phoenix, "~> 0.6.8", only: :test},
      {:cowboy, "~> 1.0"}]
   end

@@ -8,8 +8,8 @@ defmodule Allthingselixir.Repo.Migrations.CreateLocation do
       add :country, :string
       add :postal_code, :string
       add :street_address, :string
-      add :latitude, :string
-      add :longitude, :string
+      add :latitude, :float
+      add :longitude, :float
       add :event_id, references(:events, on_delete: :nothing)
 
       timestamps()

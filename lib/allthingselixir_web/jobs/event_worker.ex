@@ -19,6 +19,6 @@ defmodule Allthingselixir.EventWorker do
   end
 
   defp schedule_work() do
-    Process.send_after(self(), :work, 1000)#24 * 60 * 60 * 1000) #  Every 24 hours
+    Process.send_after(self(), :work, 24 * 60 * 60 * 1000) #  Every 24 hours
   end
 end
