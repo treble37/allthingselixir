@@ -4,12 +4,13 @@ defmodule Allthingselixir.Mixfile do
   def project do
     [app: :allthingselixir,
      version: "0.0.1",
-     elixir: "~> 1.4.2",
+     elixir: "~> 1.4.5",
      elixirc_paths: elixirc_paths(Mix.env),
      compilers: [:phoenix, :gettext] ++ Mix.compilers,
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
      aliases: aliases(),
+     preferred_cli_env: [espec: :test],
      deps: deps()]
   end
 
@@ -44,6 +45,7 @@ defmodule Allthingselixir.Mixfile do
      {:remix, "~> 0.0.1", only: :dev},
      {:timex, "~> 3.1"},
      {:yaml_elixir, "~> 1.3.0"},
+     {:espec_phoenix, "~> 0.6.8", only: :test},
      {:cowboy, "~> 1.0"}]
   end
 
