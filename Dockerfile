@@ -19,6 +19,9 @@ ADD . .
 # Install hex
 RUN MIX_ENV=prod mix local.hex --force
 
+# clean up deps
+RUN MIX_ENV=prod mix deps.clean --all
+
 # Install rebar
 RUN MIX_ENV=prod mix local.rebar --force
 
